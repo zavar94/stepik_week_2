@@ -10,9 +10,9 @@ def random_6_tour():
     kol = 1
     tours_dict = {}
     while kol <= 6:
-        x = random.randint(1, 16)
-        if x not in tours_dict:
-            tours_dict[x] = tours[x]
+        random_num = random.randint(1, 16)
+        if random_num not in tours_dict:
+            tours_dict[random_num] = tours[random_num]
             kol += 1
     return tours_dict
 
@@ -20,9 +20,9 @@ def random_6_tour():
 @register.filter()
 def departure_ture(departure):
     tours_dict = {}
-    for key, value in tours.items():
-        if value['departure'] == departure:
-            tours_dict[key] = value
+    for tour_id, tour_value in tours.items():
+        if tour_value['departure'] == departure:
+            tours_dict[tour_id] = tour_value
     return tours_dict
 
 
